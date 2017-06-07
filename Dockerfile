@@ -43,6 +43,7 @@ ENV PORT=9000 \
 
 RUN set -ex \
 	# Allow more resources for php-fpm
+    && cd /etc/php7 \
 	&& sed -i '/^pm.max_children/c\pm.max_children = 5' php-fpm.d/www.conf \
 	&& sed -i '/^pm.min_spare_servers/c\pm.min_spare_servers = 1' php-fpm.d/www.conf \
 	&& sed -i '/^pm.max_spare_servers/c\pm.max_spare_servers = 2' php-fpm.d/www.conf
