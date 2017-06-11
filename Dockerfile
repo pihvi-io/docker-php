@@ -50,6 +50,10 @@ RUN set -ex \
 
 COPY rootfs/ /
 
+COPY entrypoint.sh /
+
 EXPOSE ${PORT}
 WORKDIR ${PROJECT_ROOT}
+
+ENTRYPOINT /entrypoint.sh
 CMD ["php-fpm7"]
